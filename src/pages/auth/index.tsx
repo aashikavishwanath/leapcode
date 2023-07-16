@@ -1,3 +1,4 @@
+import AuthModel from '@/components/Models/AuthModel';
 import Navbar from '@/components/Navbar/Navbar';
 import React from 'react';
 
@@ -12,8 +13,8 @@ const index:React.FC<AuthPageProps> = () => {
             <Navbar />
             <div className="flex items-center justify-center h-[calc(100vh-5rem)] pointer-events-none select-none">
                 <img src="/front.png" alt="front image" className="w-3/4"/>
-
             </div>
+            <AuthModel />
         </div>
     </div>
 }
