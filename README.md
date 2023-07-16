@@ -1,1 +1,1 @@
-# leet-clone
+# leetcode-clone
