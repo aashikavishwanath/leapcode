@@ -1,6 +1,7 @@
 import React from 'react';
 import {BiWindowClose} from "react-icons/bi"
 import Login from './Login';
+import Signup from './Signup';
 
 type AuthModelProps = {
     
@@ -19,10 +20,10 @@ const AuthModel:React.FC<AuthModelProps> = () => {
 							<button
 								type='button'
 								className='bg-transparent rounded-lg text-sm p-0.5 ml-auto inline-flex items-center hover:bg-blue-700 hover:text-white text-white text-3xl'>
-                                <BiWindowClose />
+                                <BiWindowClose size={25}/>
 							</button>
 						</div>
-                        <Login />
+                        <Signup />
 					</div>
 				</div>
 			</div>
