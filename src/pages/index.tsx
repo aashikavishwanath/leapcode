@@ -17,7 +17,7 @@ export default function Home() {
         <div className={styles.center}>
             <Image
               className={styles.logo}
-              src="/aashi.jpeg"
+              src="/logo.png"
               alt="Aashika Face"
               width={200}
               height={150}

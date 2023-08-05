@@ -6,7 +6,7 @@ type LoginProps = {
 
 const Login:React.FC<LoginProps> = () => {
     
-    return <form className="space-y-6 px-6 py-3">
+    return <form className="space-y-6 px-6 py-3 pb-8 pt-0">
         <h3 className="text-xl font-mono text-gray-800">Sign in to LeapCode</h3>
         <div>
             <label htmlFor='email' className='text-sm font-mono block mb-2 text-gray-600'>
@@ -29,9 +29,20 @@ const Login:React.FC<LoginProps> = () => {
             />
         </div>
         <button type='submit' className='w-full text-white focus:ring-blue-300 font-mono rounded-lg
-                text-sm px-5 py-5 text-center bg-red-500 hover:bg-red-700'>
+                text-lg px-5 py-3 text-center bg-red-500 hover:bg-red-700'>
         Login
         </button>
+        <button className='flex w-full justify-end font-mono'>
+				<a href='#' className='text-sm block text-brand-orange hover:underline w-full text-right'>
+					Forgot Password?
+				</a>
+			</button>
+			<div className='text-sm font-mono text-red'>
+				Not Registered?{" "}
+				<a href='#' className='text-blue-700 hover:underline'>
+					Create account
+				</a>
+			</div>
     </form>
 }
 export default Login;
