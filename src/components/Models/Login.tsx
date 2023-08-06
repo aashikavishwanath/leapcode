@@ -1,11 +1,16 @@
+import { authModelState } from '@/atoms/authModelAtom';
 import React from 'react';
+import { useSetRecoilState } from 'recoil';
 
 type LoginProps = {
     
 };
 
 const Login:React.FC<LoginProps> = () => {
-    
+    const setAuthModelState = useSetRecoilState(authModelState)
+    const handleClick = (type: "login" | "register" | "forgotPassword") => {
+		setAuthModelState((prev) => ({ ...prev, type }));
+	};
     return (
     <form className="space-y-6 px-6 py-3 pb-8 pt-0">
         <h3 className="text-xl font-mono text-gray-800">Sign in to LeapCode</h3>
@@ -33,12 +38,12 @@ const Login:React.FC<LoginProps> = () => {
                 text-lg px-5 py-3 text-center bg-red-500 hover:bg-red-700'>
         Login
         </button>
-        <button className='flex w-full justify-end font-mono'>
-				<a href='#' className='text-sm block text-brand-orange hover:underline w-full text-right'>
+        <button className='flex w-full justify-end font-mono' onClick={() => handleClick("forgotPassword")}>
+				<a href='#' className='text-sm block text-blue-700 hover:underline  w-full text-right'>
 					Forgot Password?
 				</a>
 			</button>
-			<div className='text-sm font-mono text-red'>
+			<div className='text-sm font-mono text-red' onClick={() => handleClick("register")}>
 				Not Registered?{" "}
 				<a href='#' className='text-blue-700 hover:underline'>
 					Create account

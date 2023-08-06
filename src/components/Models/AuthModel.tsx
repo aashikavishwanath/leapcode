@@ -3,13 +3,16 @@ import {BiWindowClose} from "react-icons/bi"
 import Login from './Login';
 import Signup from './Signup';
 import ResetPassword from './ResetPassword';
+import { useRecoilValue } from 'recoil';
+import { authModelState } from '@/atoms/authModelAtom';
 
 type AuthModelProps = {
     
 };
 
 const AuthModel:React.FC<AuthModelProps> = () => {
-    
+	const authModel = useRecoilValue(authModelState);
+
     return (
         <>  {/* creating a full-screen, semi-transparent black background */ }
 			<div
@@ -24,7 +27,7 @@ const AuthModel:React.FC<AuthModelProps> = () => {
                                 <BiWindowClose size={25}/>
 							</button>
 						</div>
-                        <ResetPassword />
+                        {authModel.type === "login" ? <Login /> : authModel.type === "register" ? <Signup /> : <ResetPassword />}
 					</div>
 				</div>
 			</div>
