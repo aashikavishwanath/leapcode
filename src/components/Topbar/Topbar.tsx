@@ -13,7 +13,7 @@ type TopbarProps = {
 };
 
 const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
-	
+	const [user] = useAuthState(auth);
 	return (
 		<nav className='relative flex h-[50px] w-full shrink-0 items-center px-5 bg-transparent shadow-lg text-gray-800 font-mono' style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)' }}>
 			<div className={`flex w-full items-center justify-between ${!problemPage ? "max-w-[1200px] mx-auto" : ""}`}>

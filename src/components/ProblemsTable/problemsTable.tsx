@@ -7,13 +7,29 @@ import { collection, doc, getDoc, getDocs, orderBy, query } from "firebase/fires
 import { auth, firestore } from "@/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {problems} from "@/tempProblem/tempProblems"
+import YouTube from "react-youtube";
 
 type ProblemsTableProps = {
 	
 };
 
 const ProblemsTable: React.FC<ProblemsTableProps> = ({ }) => {
+	const [youtubePlayer, setYoutubePlayer] = useState({
+		isOpen: false,
+		videoId: "",
+	});
+	const closeModal = () => {
+		setYoutubePlayer({ isOpen: false, videoId: "" });
+	};
 
+	useEffect(() => {
+		const handleEsc = (e: KeyboardEvent) => {
+			if (e.key === "Escape") closeModal();
+		};
+		window.addEventListener("keydown", handleEsc);
+
+		return () => window.removeEventListener("keydown", handleEsc);
+	}, []);
 	return (
 		<>
 			<tbody className='text-white'>
@@ -47,19 +63,48 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ }) => {
 									<AiFillYoutube
 										fontSize={"28"}
 										className='cursor-pointer text-gray-600 hover:text-red-600 ' 
+										onClick={() =>
+											setYoutubePlayer({ isOpen: true, videoId: problem.javaVideoId as string })
+										}
 									/>
                             </td>
                             <td className={"px-6 py-4"}>
 									<AiFillYoutube
 										fontSize={"28"}
 										className='cursor-pointer text-gray-600 hover:text-red-600 ' 
+										onClick={() =>
+											setYoutubePlayer({ isOpen: true, videoId: problem.pythonVideoId as string })
+										}
 									/>
                             </td>
 						</tr>
 					);
 				})}
 			</tbody>
-			
+			{youtubePlayer.isOpen && (
+				<tfoot className='fixed top-0 left-0 h-screen w-screen flex items-center justify-center'>
+					<div
+						className='bg-black z-10 opacity-70 top-0 left-0 w-screen h-screen absolute'
+						onClick={closeModal}
+					></div>
+					<div className='w-full z-50 h-full px-6 relative max-w-4xl'>
+						<div className='w-full h-full flex items-center justify-center relative'>
+							<div className='w-full relative'>
+								<IoClose
+									fontSize={"35"}
+									className='cursor-pointer absolute -top-16 right-0'
+									onClick={closeModal}
+								/>
+								<YouTube
+									videoId={youtubePlayer.videoId}
+									loading='lazy'
+									iframeClassName='w-full min-h-[500px]'
+								/>
+							</div>
+						</div>
+					</div>
+				</tfoot>
+			)}
 		</>
 	);
 };

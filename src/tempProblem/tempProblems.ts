@@ -4,7 +4,8 @@ export type Problem = {
 	difficulty: string;
 	category: string;
 	order: number;
-	videoId?: string;
+	javaVideoId?: string;
+	pythonVideoId?: string;
 };
 
 export const problems: Problem[] = [
@@ -14,7 +15,8 @@ export const problems: Problem[] = [
 		difficulty: "Hard",
 		category: "Array",
 		order: 1,
-		videoId: "4oZsPXG9B94",
+		javaVideoId: "4oZsPXG9B94",
+		pythonVideoId: "qJSPYnS35SE"
 	},
 	{
 		id: "3-sum",
@@ -22,7 +24,7 @@ export const problems: Problem[] = [
 		difficulty: "Medium",
 		category: "Two Pointers",
 		order: 2,
-		videoId: "qJSPYnS35SE",
+		javaVideoId: "qJSPYnS35SE",
 	},
 	{
 		id: "longest-substring",
@@ -30,7 +32,7 @@ export const problems: Problem[] = [
 		difficulty: "Medium",
 		category: "Sliding Window",
 		order: 3,
-		videoId: "3IETreEybaA",
+		javaVideoId: "3IETreEybaA",
 	},
 	{
 		id: "valid-parentheses",
@@ -38,7 +40,7 @@ export const problems: Problem[] = [
 		difficulty: "Easy",
 		category: "Stack",
 		order: 4,
-		videoId: "xty7fr-k0TU",
+		javaVideoId: "xty7fr-k0TU",
 	},
 	{
 		id: "search-a-2d-matrix",
@@ -46,7 +48,7 @@ export const problems: Problem[] = [
 		difficulty: "Medium",
 		category: "Binary Search",
 		order: 5,
-		videoId: "ZfFl4torNg4",
+		javaVideoId: "ZfFl4torNg4",
 	},
 	{
 		id: "container-with-most-water",
@@ -54,7 +56,7 @@ export const problems: Problem[] = [
 		difficulty: "Medium",
 		category: "Two Pointers",
 		order: 6,
-		videoId: "4oZsPXG9B94",
+		javaVideoId: "4oZsPXG9B94",
 	},
 	{
 		id: "merge-intervals",
@@ -62,7 +64,7 @@ export const problems: Problem[] = [
 		difficulty: "Medium",
 		category: "intervals",
 		order: 7,
-		videoId: "4oZsPXG9B94",
+		javaVideoId: "4oZsPXG9B94",
 	},
 	{
 		id: "maximum-depth-of-binary-tree",
@@ -70,7 +72,7 @@ export const problems: Problem[] = [
 		difficulty: "Easy",
 		category: "Tree",
 		order: 8,
-		videoId: "4qYTqOiRMoM",
+		javaVideoId: "4qYTqOiRMoM",
 	},
 	{
 		id: "best-time-to-buy-and-sell-stock",
@@ -78,7 +80,7 @@ export const problems: Problem[] = [
 		difficulty: "Easy",
 		category: "Array",
 		order: 9,
-		videoId: "4oZsPXG9B94",
+		javaVideoId: "4oZsPXG9B94",
 	},
 	{
 		id: "subsets",
@@ -86,7 +88,7 @@ export const problems: Problem[] = [
 		difficulty: "Medium",
 		category: "Backtracking",
 		order: 10,
-		videoId: "4oZsPXG9B94",
+		javaVideoId: "4oZsPXG9B94",
 	},
     
 ];
