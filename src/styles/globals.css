@@ -42,7 +42,7 @@ body {
 /* CODE EDITOR*/
 .cm-scroller,
 .cm-gutters {
-	background-color: #282828 !important;
+	background-color: #3f3094 !important;
 }
 .cm-focused {
 	outline: none !important;
@@ -54,12 +54,12 @@ body {
 }
 
 .gutter {
-	background-color: rgb(26, 26, 26);
+	background-color: rgb(57, 58, 122);
 	background-repeat: no-repeat;
 	background-position: 50%;
 }
 .gutter:hover {
-	background-color: #0a84ff;
+	background-color: #db1147;
 }
 
 .gutter.gutter-horizontal {
