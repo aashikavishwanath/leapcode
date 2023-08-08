@@ -1,7 +1,22 @@
-import React from "react";
+import { auth } from "@/firebase/firebase";
+import React, { useState, useEffect } from "react";
+import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+
 type ResetPasswordProps = {};
 
 const ResetPassword: React.FC<ResetPasswordProps> = () => {
+	const [email, setEmail] = useState("");
+	const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
+	const handleReset = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		const success = await sendPasswordResetEmail(email);
+	};
+
+	useEffect(() => {
+		if (error) {
+			alert(error.message);
+		}
+	}, [error]);
 	return (
 		<form className='space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8'>
 			<h3 className='text-xl font-mono  text-black'>Reset Password</h3>

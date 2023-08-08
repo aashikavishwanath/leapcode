@@ -7,6 +7,9 @@ import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { BsList } from "react-icons/bs";
 import { useRouter } from "next/router";
+import Logout from "../Logout/Logout";
+import { authModelState } from "@/atoms/authModelAtom";
+
 
 type TopbarProps = {
 	problemPage?: boolean;
@@ -14,6 +17,7 @@ type TopbarProps = {
 
 const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 	const [user] = useAuthState(auth);
+	const setAuthModelState = useSetRecoilState(authModelState);
 	return (
 		<nav className='relative flex h-[50px] w-full shrink-0 items-center px-5 bg-transparent shadow-lg text-gray-800 font-mono' style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)' }}>
 			<div className={`flex w-full items-center justify-between ${!problemPage ? "max-w-[1200px] mx-auto" : ""}`}>
@@ -34,8 +38,10 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 							Premium
 						</a>
 					</div>
+					{!user && (
 						<Link
 							href='/auth'
+							onClick={() => setAuthModelState((prev) => ({ ...prev, isOpen: true, type: "login" }))}
 						>
 							<button
                                 className="bg-brand-red text-white px-1 py-0.5 rounded-md font-mono 
@@ -43,6 +49,20 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
                                 transition duration-300 ease-in-out" 
                             >Sign In</button>
 						</Link>
+					)}
+					{user && (
+						<div className='cursor-pointer group relative'>
+							<Image src='/person.png' alt='Avatar' width={30} height={30} className='rounded-full' />
+							<div
+								className='absolute top-10 left-2/4 -translate-x-2/4  mx-auto bg-brand-red text-brand-orange p-2 rounded shadow-lg 
+								z-40 group-hover:scale-100 scale-0 
+								transition-all duration-300 ease-in-out'
+							>
+								<p className='text-sm text-white'>{user.email}</p>
+							</div>
+						</div>
+					)}
+					{user && <Logout />}
 				</div>
 			</div>
 		</nav>

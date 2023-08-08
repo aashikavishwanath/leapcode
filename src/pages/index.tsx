@@ -17,7 +17,7 @@ export default function Home() {
             className='text-2xl text-center text-gray-800 dark:text-gray-700 font-mono
           mt-10 mb-5'
           >
-            Dive in Below!
+            Let the Coding Begin!
           </h1>
           <div className='relative overflow-x-auto mx-auto px-6 pb-10'>
             <table className='text-sm text-left text-gray-500 dark:text-gray-400 sm:w-7/12 w-full max-w-[1200px] mx-auto'>
