@@ -13,7 +13,12 @@ const PreferenceNav: React.FC<PreferenceNavProps> = () => {
             <div className='flex items-center text-gray-900'>
                 <button className='flex cursor-pointer items-center rounded focus:outline-none bg-dark-fill-3 text-dark-label-2 hover:bg-dark-fill-2  px-2 py-1.5 font-mono'>
                     <div className='flex items-center px-1'>
-                        <div className='text-xs text-gray-900 dark:text-dark-label-2'>Javascript</div>
+                        <div className='text-xs text-gray-900 dark:text-dark-label-2'>Java</div>
+                    </div>
+                </button>
+                <button className='flex cursor-pointer items-center rounded focus:outline-none bg-dark-fill-3 text-dark-label-2 hover:bg-dark-fill-2  px-2 py-1.5 font-mono'>
+                    <div className='flex items-center px-1'>
+                        <div className='text-xs text-gray-900 dark:text-dark-label-2'>Python</div>
                     </div>
                 </button>
                
