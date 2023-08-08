@@ -9,6 +9,8 @@ import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { BsList } from "react-icons/bs";
 import { useRouter } from "next/router";
+import Timer from "../Timer/Timer";
+
 
 type TopbarProps = {
 	problemPage?: boolean;
@@ -76,6 +78,7 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 								>Sign In</button>
 						</Link>
 					)}
+					{problemPage && <Timer />}
 					{user && (
 						<div className='cursor-pointer group relative'>
 						<Image src='/person.png' alt='Avatar' width={30} height={30} className='rounded-full' />
